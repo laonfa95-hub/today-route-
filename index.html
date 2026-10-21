@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f8fa" />
+  <meta name="description" content="주간근무 삼남·칠서 교대 노선을 자동으로 알려주는 개인용 근무 달력" />
+  <link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="오늘 어디 타지?" />
+  <title>오늘 어디 타지? | 삼남·칠서</title>
+  <style>
+    :root{--bg:#f6f7fa;--ink:#1c2835;--muted:#798596;--line:#e7eaf0;--card:#fff;--blue:#286bd9;--blue-soft:#edf4ff;--orange:#e78140;--orange-soft:#fff2e8;--shadow:0 10px 30px rgba(18,43,83,.055)}
+    *{box-sizing:border-box}
+    html{color-scheme:light;scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;-webkit-font-smoothing:antialiased}
+    button,input,select{font:inherit}
+    button{cursor:pointer}
+    .wrap{max-width:520px;margin:auto;min-height:100vh;padding:34px 20px calc(44px + env(safe-area-inset-bottom))}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brandmark{width:42px;height:42px;display:grid;place-items:center;border-radius:15px;background:#283c57;color:white;box-shadow:0 6px 16px rgba(25,51,89,.16);font-weight:850;font-size:17px;letter-spacing:-1.2px}
+    .brand small{display:block;color:var(--muted);font-size:11px;font-weight:650;letter-spacing:.6px;margin-bottom:2px}
+    .brand strong{font-size:19px;letter-spacing:-.8px}
+    .iconBtn{height:42px;width:42px;border:1px solid var(--line);background:white;border-radius:14px;display:grid;place-items:center;font-size:20px;color:#485469}
+    .todayDate{font-size:14px;color:var(--muted);font-weight:650;margin-bottom:12px}
+    .hero{border-radius:28px;padding:30px 28px 25px;position:relative;overflow:hidden;background:linear-gradient(145deg,#367ae5,#1c56bf);color:white;box-shadow:0 12px 24px rgba(41,103,211,.18)}
+    .hero.samnam{background:linear-gradient(145deg,#f0a168,#db7836);box-shadow:0 12px 24px rgba(211,117,53,.16)}
+    .hero.off{background:linear-gradient(145deg,#63718a,#45556d);box-shadow:0 12px 24px rgba(69,85,109,.13)}
+    .hero:after{content:"";position:absolute;width:240px;height:240px;border:38px solid rgba(255,255,255,.075);border-radius:50%;right:-118px;top:-122px;pointer-events:none}
+    .hero:before{content:"";position:absolute;width:120px;height:120px;border:20px solid rgba(255,255,255,.06);border-radius:50%;right:-50px;bottom:-70px;pointer-events:none}
+    .pill{display:inline-flex;gap:7px;align-items:center;padding:7px 11px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.12);border-radius:40px;font-size:12px;font-weight:750}
+    .dot{width:7px;height:7px;border-radius:50%;background:white;display:inline-block}
+    .heroLabel{font-size:15px;margin-top:26px;opacity:.85;font-weight:560}
+    .heroTitle{font-size:54px;font-weight:850;letter-spacing:-2px;line-height:1.25;margin:3px 0 12px}
+    .heroDesc{font-size:14px;line-height:1.55;opacity:.91}
+    .heroFoot{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.23);display:flex;align-items:center;justify-content:space-between;font-size:13px;gap:10px}
+    .heroFoot strong{font-weight:780}
+    .section{margin-top:31px}
+    .sectionTitle{font-size:18px;letter-spacing:-.5px;font-weight:800;margin:0 0 14px;display:flex;align-items:center;justify-content:space-between}
+    .muted{font-size:12px;color:var(--muted);font-weight:500}
+    .quick{display:flex;gap:11px}
+    .quickCard{flex:1;min-width:0;background:white;border:1px solid var(--line);border-radius:20px;padding:17px 15px;box-shadow:var(--shadow)}
+    .quickCard small{font-size:12px;color:var(--muted);display:block;margin-bottom:10px}
+    .quickCard strong{font-size:21px;font-weight:800;letter-spacing:-.5px;display:block}
+    .quickCard span{font-size:11px;color:var(--muted);display:block;margin-top:7px}
+    .textBlue{color:var(--blue)}.textOrange{color:var(--orange)}
+    .calendar{background:white;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:21px 15px 15px}
+    .calNav{display:flex;align-items:center;justify-content:space-between;margin:0 5px 20px}
+    .calNav strong{font-size:18px;font-weight:850;letter-spacing:-.6px}
+    .navBtn{background:#f5f7fa;border:0;border-radius:12px;width:35px;height:35px;display:grid;place-items:center;color:#4d5a71;font-size:21px}
+    .calGrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px 2px}
+    .dow{text-align:center;color:#95a0af;font-size:11px;font-weight:700;padding-bottom:9px}
+    .dow:first-child{color:#e49d96}.dow:last-child{color:#93a5bd}
+    .day{border:1.5px solid transparent;border-radius:13px;background:transparent;aspect-ratio:.85;min-height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#354255;padding:3px 0}
+    .day.blank{pointer-events:none}
+    .day.today{border-color:#344660;background:#f4f7fb}
+    .day.selected:not(.today){background:#f5f7fc;border-color:#c4d0e5}
+    .dayNum{font-size:13px;font-weight:680;line-height:1.2}
+    .dayLabel{font-size:9px;font-weight:850;border-radius:5px;padding:3px 5px;min-width:30px;text-align:center;white-space:nowrap}
+    .dayLabel.chilseo{background:var(--blue-soft);color:var(--blue)}
+    .dayLabel.samnam{background:var(--orange-soft);color:#d87537}
+    .dayLabel.off{color:#a5aebb;background:#f2f4f7}
+    .day.sunday .dayNum{color:#d78c83}.day.saturday .dayNum{color:#8096ad}
+    .calLegend{display:flex;gap:13px;margin:18px 5px 4px;justify-content:center;flex-wrap:wrap}
+    .calLegend span{font-size:11px;color:#7d8796;display:flex;align-items:center;gap:5px}
+    .legendDot{width:8px;height:8px;border-radius:3px}
+    .selectedInfo{background:#f7f9fd;margin-top:13px;border-radius:14px;padding:13px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .selectedInfo span{font-size:12px;color:#657287}
+    .selectedInfo strong{font-size:15px;font-weight:800}
+    .upcoming{background:#fff;border:1px solid var(--line);border-radius:20px;padding:5px 17px;box-shadow:var(--shadow)}
+    .upRow{padding:13px 2px;display:flex;align-items:center;gap:13px;border-bottom:1px solid #f0f2f5}
+    .upRow:last-child{border-bottom:0}
+    .upDate{min-width:62px;font-size:13px;font-weight:680}
+    .upDate small{display:block;font-size:11px;color:var(--muted);font-weight:500;margin-top:3px}
+    .upRoute{margin-left:auto;padding:7px 13px;border-radius:9px;font-size:13px;font-weight:800}
+    .upRoute.chilseo{background:var(--blue-soft);color:var(--blue)}
+    .upRoute.samnam{background:var(--orange-soft);color:var(--orange)}
+    .upRow .hint{font-size:12px;color:var(--muted)}
+    .note{font-size:12px;line-height:1.7;color:#8792a2;margin:23px 3px 0;text-align:center}
+    .overlay{position:fixed;inset:0;background:rgba(22,34,54,.55);display:none;align-items:flex-end;justify-content:center;z-index:10;padding:16px}
+    .overlay.active{display:flex}
+    .modal{max-width:510px;width:100%;border-radius:24px;background:white;padding:24px;box-shadow:0 25px 60px rgba(0,0,0,.2)}
+    .modalHeader{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+    .modalHeader strong{font-size:19px}
+    .closeBtn{background:#f3f5f8;border:0;border-radius:10px;width:32px;height:32px;font-size:20px}
+    .formLabel{display:block;font-size:13px;font-weight:700;margin:16px 0 8px}
+    .formHelp{font-size:12px;color:#8792a2;line-height:1.65;margin:6px 0 0}
+    input[type=date],select{height:46px;border:1px solid #dce2ea;border-radius:12px;width:100%;background:white;padding:0 12px;color:#29364b}
+    .saveBtn{width:100%;padding:14px;background:#263e62;color:white;border:0;border-radius:13px;font-weight:800;margin-top:26px}
+    .resetBtn{display:block;background:none;color:#8a96a5;border:none;margin:16px auto 0;text-decoration:underline;font-size:12px}
+    .footer{margin-top:24px;color:#9aa5b3;text-align:center;font-size:11px}
+    @media(max-width:360px){.wrap{padding:22px 13px 32px}.hero{padding:26px 21px}.day{min-height:47px}.dayLabel{font-size:8px;min-width:26px;padding:3px}.calendar{padding:19px 9px 13px}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="brandmark">어디</div><div><small>MY ROUTE</small><strong>오늘 어디 타지?</strong></div></div>
+    <button id="settingsOpen" class="iconBtn" aria-label="근무 기준 설정" title="설정">⚙</button>
+  </header>
+  <div id="todayDate" class="todayDate"></div>
+  <div id="hero" class="hero" aria-live="polite">
+    <div id="status" class="pill"><span class="dot"></span> 주간 근무</div>
+    <div class="heroLabel" id="heroLabel">오늘 타는 지방</div>
+    <div class="heroTitle" id="heroTitle">칠서</div>
+    <div class="heroDesc" id="heroDesc">오늘은 칠서 차례입니다.</div>
+    <div class="heroFoot"><span id="heroFootLabel">다음 운행</span><strong id="heroFootValue">확인 중</strong></div>
+  </div>
+  <section class="section">
+    <h2 class="sectionTitle">다음 일정 <span class="muted">주간근무만 표시</span></h2>
+    <div class="quick">
+      <div class="quickCard"><small>다음 주간근무</small><strong id="nextWeek">-</strong><span id="nextWeekDetail">-</span></div>
+      <div class="quickCard"><small>다음 지방</small><strong id="nextRoute">-</strong><span id="nextRouteDetail">-</span></div>
+    </div>
+  </section>
+  <section class="section">
+    <h2 class="sectionTitle">근무 달력 <span class="muted">날짜를 눌러 확인하세요</span></h2>
+    <div class="calendar">
+      <div class="calNav"><button type="button" id="prevMonth" class="navBtn" aria-label="이전 달">‹</button><strong id="monthLabel">2026년 10월</strong><button type="button" id="nextMonth" class="navBtn" aria-label="다음 달">›</button></div>
+      <div class="calGrid" id="calendarGrid"></div>
+      <div class="calLegend"><span><i class="legendDot" style="background:#397be0"></i>칠서</span><span><i class="legendDot" style="background:#ee965b"></i>삼남</span><span><i class="legendDot" style="background:#c5cbd5"></i>야간 주간</span></div>
+      <div class="selectedInfo"><span id="selectedDateLabel">선택 날짜</span><strong id="selectedRouteLabel">-</strong></div>
+    </div>
+  </section>
+  <section class="section"><h2 class="sectionTitle">다가오는 주간 노선</h2><div class="upcoming" id="upcoming"></div></section>
+  <p class="note">주간 1주 → 야간 1주 반복 · 주간 월~금 삼남/칠서 교대<br>야간근무와 주말에는 노선을 배정하지 않습니다.<br>공휴일·연차·임시 변경은 자동으로 반영되지 않습니다.</p>
+  <div class="footer">나만 보는 개인용 노선 달력 · 모든 계산은 기기에서 처리됩니다.</div>
+</div>
+<div id="settingsOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+  <div class="modal">
+    <div class="modalHeader"><strong id="settingsTitle">근무 기준 설정</strong><button type="button" id="settingsClose" class="closeBtn" aria-label="닫기">×</button></div>
+    <label class="formLabel" for="baseMonday">기준 주간근무 시작일 (월요일)</label>
+    <input id="baseMonday" type="date" value="2026-10-19" />
+    <p class="formHelp">이 날짜가 속한 주는 주간근무, 다음 주는 야간근무로 계산합니다.</p>
+    <label class="formLabel" for="baseRoute">기준 월요일 지방</label>
+    <select id="baseRoute"><option value="칠서">칠서</option><option value="삼남">삼남</option></select>
+    <p class="formHelp">초기 설정: 2026년 10월 19일(월) 칠서 → 10월 21일(수) 칠서. 주간근무일에만 하루씩 번갈아 배정합니다.</p>
+    <button type="button" id="settingsSave" class="saveBtn">설정 저장</button>
+    <button type="button" id="resetSettings" class="resetBtn">기본 설정으로 초기화</button>
+  </div>
+</div>
+<script>
+(()=>{'use strict';
+  const DEFAULT={baseMonday:'2026-10-19',baseRoute:'칠서'};
+  const KEY='samnam-chilseo-route-v1';
+  let cfg={...DEFAULT};
+  try{const parsed=JSON.parse(localStorage.getItem(KEY)||'null');if(parsed&&/^\d{4}-\d{2}-\d{2}$/.test(parsed.baseMonday)&&['칠서','삼남'].includes(parsed.baseRoute))cfg=parsed;}catch(e){}
+  const DAYS=['일','월','화','수','목','금','토'];
+  const $=id=>document.getElementById(id);
+  const pad=n=>String(n).padStart(2,'0');
+  const isoUTC=(y,m,d)=>`${y}-${pad(m)}-${pad(d)}`;
+  const parts=iso=>iso.split('-').map(Number);
+  const num=iso=>{const [y,m,d]=parts(iso);return Math.round(Date.UTC(y,m-1,d)/86400000);};
+  const fromNum=n=>new Date(n*86400000).toISOString().slice(0,10);
+  const dow=iso=>(num(iso)+4)%7; // 1970-01-01 Thursday
+  const mondayIndex=iso=>(dow(iso)+6)%7;
+  const monday=iso=>fromNum(num(iso)-mondayIndex(iso));
+  const todaySeoul=()=>{const x=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const p={};for(const a of x){if(a.type!=='literal')p[a.type]=a.value;}return `${p.year}-${p.month}-${p.day}`;};
+  let today=todaySeoul();let viewed=today.slice(0,7);let selected=today;
+  const other=s=>s==='칠서'?'삼남':'칠서';
+  function status(iso){
+    const weekday=dow(iso);
+    if(weekday===0||weekday===6)return {type:'weekend',name:'주말'};
+    const week=Math.round((num(monday(iso))-num(cfg.baseMonday))/7);
+    if(week%2!==0)return {type:'night',name:'야간 주간'};
+    const shiftNum=Math.floor(week/2)*5+mondayIndex(iso);
+    const route=shiftNum%2===0?cfg.baseRoute:other(cfg.baseRoute);
+    return {type:route==='칠서'?'chilseo':'samnam',name:route,shiftNum};
+  }
+  function nextShift(iso,includeToday=false){
+    const start=num(iso)+(includeToday?0:1);
+    for(let i=0;i<800;i++){const date=fromNum(start+i),s=status(date);if(s.type==='chilseo'||s.type==='samnam')return{iso:date,...s};}
+    return null;
+  }
+  function nextDayWeek(iso){let day=iso;for(let i=0;i<30;i++){const info=status(day);if(info.type==='chilseo'||info.type==='samnam')return day;day=fromNum(num(day)+1);}return null;}
+  const human=iso=>{const [y,m,d]=parts(iso);return `${m}월 ${d}일 (${DAYS[dow(iso)]})`;};
+  function refreshToday(){
+    today=todaySeoul();const s=status(today),n=nextShift(today),cur=s.type==='chilseo'||s.type==='samnam';
+    $('todayDate').textContent=`${today.slice(0,4)}년 ${Number(today.slice(5,7))}월 ${Number(today.slice(8,10))}일 ${DAYS[dow(today)]}요일`;
+    $('hero').className='hero '+(s.type==='samnam'?'samnam':cur?'':'off');
+    $('status').innerHTML=`<span class="dot"></span> ${cur?'주간 근무':s.type==='night'?'야간 근무 주':'주말'}`;
+    $('heroLabel').textContent=cur?'오늘 타는 지방':'오늘의 노선';
+    $('heroTitle').textContent=cur?s.name:s.type==='night'?'야간 주':'주말';
+    $('heroDesc').textContent=cur?`오늘은 ${s.name} 차례입니다. 안전운전하세요!`:s.type==='night'?'이번 주는 야간근무 주간입니다. 주간 노선 배정이 없습니다.':'오늘은 주간 노선 배정이 없습니다.';
+    $('heroFootLabel').textContent='다음 주간 노선';
+    $('heroFootValue').textContent=n?`${human(n.iso)} · ${n.name}`:'-';
+    const nextMonday=fromNum(num(monday(today))+7),weekStart=nextShift(nextMonday,true),weekInfo=weekStart?monday(weekStart.iso):null;
+    $('nextWeek').textContent=weekInfo?`${Number(weekInfo.slice(5,7))}/${Number(weekInfo.slice(8,10))} 시작`:'-';
+    $('nextWeekDetail').textContent=weekInfo?`${human(weekInfo)} ~ 금요일`:'-';
+    $('nextRoute').textContent=n?n.name:'-';
+    $('nextRoute').className=n?(n.type==='chilseo'?'textBlue':'textOrange'):'';
+    $('nextRouteDetail').textContent=n?human(n.iso):'-';
+    renderCalendar();renderUpcoming();
+  }
+  function renderCalendar(){
+    const [y,m]=viewed.split('-').map(Number),first=isoUTC(y,m,1),length=new Date(Date.UTC(y,m,0)).getUTCDate();
+    $('monthLabel').textContent=`${y}년 ${m}월`;
+    const el=$('calendarGrid');el.replaceChildren();
+    DAYS.forEach((label,i)=>{const div=document.createElement('div');div.className='dow';div.textContent=label;el.appendChild(div);});
+    for(let i=0;i<dow(first);i++){const div=document.createElement('div');div.className='day blank';el.appendChild(div);}
+    for(let d=1;d<=length;d++){
+      const iso=isoUTC(y,m,d),s=status(iso),w=dow(iso),b=document.createElement('button');
+      b.type='button';b.className=`day ${iso===today?'today':''} ${iso===selected?'selected':''} ${w===0?'sunday':''} ${w===6?'saturday':''}`.trim();b.setAttribute('aria-label',`${human(iso)}, ${s.name}`);
+      const dateNum=document.createElement('span');dateNum.className='dayNum';dateNum.textContent=d;b.appendChild(dateNum);
+      if(w!==0&&w!==6){const label=document.createElement('span');label.className='dayLabel '+(s.type==='night'?'off':s.type);label.textContent=s.type==='night'?'야간':s.name;b.appendChild(label);}
+      b.onclick=()=>{selected=iso;renderCalendar();};el.appendChild(b);
+    }
+    const ss=status(selected);$('selectedDateLabel').textContent=human(selected);$('selectedRouteLabel').textContent=ss.type==='weekend'?'주말 · 노선 없음':ss.type==='night'?'야간근무 주 · 노선 없음':`주간 · ${ss.name}`;
+    $('selectedRouteLabel').className=ss.type==='chilseo'?'textBlue':ss.type==='samnam'?'textOrange':'';
+  }
+  function renderUpcoming(){
+    const el=$('upcoming');el.replaceChildren();let ref=today;
+    for(let i=0;i<6;i++){
+      const n=nextShift(ref,true);if(!n)break;
+      const r=document.createElement('div');r.className='upRow';
+      const d=document.createElement('div');d.className='upDate';d.textContent=`${Number(n.iso.slice(5,7))}/${Number(n.iso.slice(8,10))}`;
+      const sm=document.createElement('small');sm.textContent=`${DAYS[dow(n.iso)]}요일${n.iso===today?' · 오늘':''}`;d.appendChild(sm);
+      const gap=document.createElement('span');gap.className='hint';gap.textContent=n.iso===today?'오늘':num(n.iso)-num(today)>=7?'다음 주간':'';
+      const badge=document.createElement('span');badge.className='upRoute '+n.type;badge.textContent=n.name;
+      r.append(d,gap,badge);el.appendChild(r);ref=fromNum(num(n.iso)+1);
+    }
+  }
+  const openSettings=()=>{$('baseMonday').value=cfg.baseMonday;$('baseRoute').value=cfg.baseRoute;$('settingsOverlay').classList.add('active');};
+  const closeSettings=()=>$('settingsOverlay').classList.remove('active');
+  $('settingsOpen').addEventListener('click',openSettings);$('settingsClose').addEventListener('click',closeSettings);
+  $('settingsOverlay').addEventListener('click',e=>{if(e.target===$('settingsOverlay'))closeSettings();});
+  $('prevMonth').onclick=()=>{const [y,m]=viewed.split('-').map(Number);const d=new Date(Date.UTC(y,m-2,1));viewed=`${d.getUTCFullYear()}-${pad(d.getUTCMonth()+1)}`;selected=viewed+'-01';renderCalendar();};
+  $('nextMonth').onclick=()=>{const [y,m]=viewed.split('-').map(Number);const d=new Date(Date.UTC(y,m,1));viewed=`${d.getUTCFullYear()}-${pad(d.getUTCMonth()+1)}`;selected=viewed+'-01';renderCalendar();};
+  $('settingsSave').onclick=()=>{
+    const baseMonday=$('baseMonday').value,baseRoute=$('baseRoute').value;
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(baseMonday)||dow(baseMonday)!==1){alert('주간근무 시작일은 월요일로 선택해주세요.');return;}
+    cfg={baseMonday,baseRoute};try{localStorage.setItem(KEY,JSON.stringify(cfg));}catch(e){}closeSettings();refreshToday();
+  };
+  $('resetSettings').onclick=()=>{cfg={...DEFAULT};try{localStorage.removeItem(KEY);}catch(e){}closeSettings();refreshToday();};
+  refreshToday();document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshToday();});
+  window.addEventListener('focus',refreshToday);setInterval(()=>{if(todaySeoul()!==today){today=todaySeoul();selected=today;viewed=today.slice(0,7);refreshToday();}},60000);
+})();
+</script>
+</body>
+</html>
